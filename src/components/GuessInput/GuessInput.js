@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-// Tips: Using "pattern" attribute to validate input
-function InputForm() {
+function GuessInput({ HandleSubmitGuess }) {
   const [guess, setGuess] = React.useState('');
   
   function HandleSubmit(event) {
     event.preventDefault();
-    console.log(guess);
+    
+    HandleSubmitGuess(guess);
     setGuess('')
   }
 
@@ -19,6 +19,7 @@ function InputForm() {
       <input 
         id='guess-input' 
         type='text'
+        required
         pattern='^.{5}$'
         title='Guess must be 5 characters'
         value={guess}
@@ -29,4 +30,4 @@ function InputForm() {
   );
 }
 
-export default InputForm;
+export default GuessInput;
